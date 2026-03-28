@@ -1,3 +1,5 @@
+import type { CSSProperties, ReactNode } from "react";
+
 type Project = {
   title: string;
   subtitle: string;
@@ -47,7 +49,7 @@ const services = [
   "creative direction",
 ];
 
-const monoStyle = {
+const monoStyle: CSSProperties = {
   fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
 };
 
@@ -58,7 +60,7 @@ function VisualCard({
 }: {
   title: string;
   label: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 p-4 shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#7a0f0f]/40">
@@ -69,10 +71,8 @@ function VisualCard({
         <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.34em] text-red-800/80">
           {label}
         </p>
-        <div className="rounded-[1.5rem] border border-white/10 bg-black p-4">
-          {children}
-        </div>
-        <h4 className="mt-4 text-xl font-black uppercase tracking-[-0.04em] text-white md:text-2xl">
+        <div className="rounded-[1.5rem] border border-white/10 bg-black p-4">{children}</div>
+        <h4 className="mt-4 break-words text-xl font-black uppercase tracking-[-0.04em] text-white md:text-2xl">
           {title}
         </h4>
       </div>
@@ -82,8 +82,7 @@ function VisualCard({
 
 export default function Home() {
   return (
-    <div
-      className="min-h-screen w-full overflow-x-hidden bg-black text-white"
+    <div className="min-h-screen w-full overflow-x-hidden bg-black text-white"
       style={{
         backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')",
         backgroundSize: "cover",
@@ -102,17 +101,16 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
           <div className="grid gap-12 md:grid-cols-[1.18fr_0.82fr] md:items-end">
-            <div>
-              <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#7a0f0f]/40 bg-[#7a0f0f]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/90 backdrop-blur-sm shadow-[0_0_30px_rgba(122,15,15,0.18)]">
+            <div className="min-w-0"><div className="mb-6 inline-flex max-w-full flex-wrap items-center gap-3 rounded-full border border-[#7a0f0f]/40 bg-[#7a0f0f]/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/90 backdrop-blur-sm shadow-[0_0_30px_rgba(122,15,15,0.18)] sm:text-[11px] sm:tracking-[0.32em]">
                 <span className="h-2 w-2 rounded-full bg-[#7a0f0f]" />
                 ash farias, graphic designer
               </div>
 
-              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.38em] text-red-800/90">
+              <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-red-800/90 sm:text-[11px] sm:tracking-[0.38em]">
                 branding / culture / visuals that hit
               </p>
 
-              <h1 className="max-w-5xl text-6xl font-black uppercase leading-[0.88] tracking-[-0.06em] text-white md:text-8xl">
+              <h1 className="max-w-5xl break-words text-4xl font-black uppercase leading-[0.9] tracking-[-0.04em] text-white sm:text-5xl md:text-8xl md:tracking-[-0.06em]">
                 design that
                 <br />
                 feels loud
@@ -148,9 +146,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="rotate-[-2deg] rounded-[2.2rem] border border-white/10 bg-zinc-950 p-6 text-white shadow-2xl md:p-7">
-                <div className="mb-5 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-white/45">
+            <div className="relative min-w-0"><div className="rounded-[2rem] border border-white/10 bg-zinc-950 p-5 text-white shadow-2xl md:rotate-[-2deg] md:rounded-[2.2rem] md:p-7">
+                <div className="mb-5 flex flex-wrap items-center justify-between gap-2 text-[10px] uppercase tracking-[0.18em] text-white/45 sm:tracking-[0.28em]">
                   <span>featured concept</span>
                   <span>kujo’s coffee shop</span>
                 </div>
@@ -159,7 +156,7 @@ export default function Home() {
                   <p className="text-[10px] uppercase tracking-[0.28em] text-white/45">
                     brand expansion system
                   </p>
-                  <h2 className="mt-3 text-4xl font-black uppercase leading-none md:text-6xl">
+                  <h2 className="mt-3 break-words text-3xl font-black uppercase leading-none sm:text-4xl md:text-6xl">
                     hard.
                     <br />
                     sweet.
@@ -198,7 +195,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute -bottom-5 -left-4 rotate-[3deg] rounded-2xl border border-white/10 bg-white px-4 py-3 text-black shadow-xl">
+              <div className="absolute left-0 top-full mt-4 rounded-2xl border border-white/10 bg-white px-4 py-3 text-black shadow-xl md:-bottom-5 md:left-4 md:top-auto md:mt-0 md:rotate-[3deg]">
                 <p className="text-[10px] uppercase tracking-[0.26em] text-black/45">
                   current focus
                 </p>
@@ -209,13 +206,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-7xl px-6 py-16 md:px-10">
+      <section id="about" className="mx-auto max-w-7xl overflow-x-hidden px-6 py-16 md:px-10">
         <div className="grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-start">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-red-800/90">
               about
             </p>
-            <h3 className="mt-3 text-3xl font-black uppercase leading-none text-white md:text-5xl">
+            <h3 className="mt-3 break-words text-3xl font-black uppercase leading-none text-white md:text-5xl">
               rooted in art.
               <br />
               built by instinct.
@@ -250,22 +247,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="visuals" className="mx-auto max-w-7xl px-6 py-6 md:px-10 md:py-10">
+      <section id="visuals" className="mx-auto max-w-7xl overflow-x-hidden px-6 py-6 md:px-10 md:py-10">
         <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-red-800/90">
               selected visual
             </p>
-            <h3 className="mt-3 text-3xl font-black uppercase leading-none text-white md:text-6xl">
+            <h3 className="mt-3 break-words text-3xl font-black uppercase leading-none text-white md:text-6xl">
               shirt design concept.
             </h3>
           </div>
-          <p
-            className="max-w-xl text-sm font-medium leading-7 tracking-[0.01em] text-white/75 md:text-base"
-            style={monoStyle}
-          >
-            a more wearable, streetwear-inspired direction for kujo’s merch, built to feel less
-            like a logo on a shirt and more like something people would actually choose to wear.
+          <p className="max-w-xl text-sm font-medium leading-7 tracking-[0.01em] text-white/75 md:text-base" style={monoStyle}>
+            a more wearable, streetwear-inspired direction for kujo’s merch, built to feel less like a logo on a shirt and more like something people would actually choose to wear.
           </p>
         </div>
 
@@ -282,12 +275,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10">
+      <section className="mx-auto max-w-7xl overflow-x-hidden px-6 py-16 md:px-10">
         <div className="rounded-[2rem] border border-white/10 bg-zinc-950 p-7 md:p-9">
           <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-red-800/90">
             strategy
           </p>
-          <h3 className="mt-3 text-3xl font-black uppercase leading-none text-white md:text-5xl">
+          <h3 className="mt-3 break-words text-3xl font-black uppercase leading-none text-white md:text-5xl">
             why younger audiences matter.
           </h3>
           <p className="mt-5 text-base font-medium leading-8 tracking-[0.01em] text-white/85 md:text-lg" style={monoStyle}>
@@ -306,13 +299,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="mx-auto max-w-7xl px-6 py-16 md:px-10">
+      <section id="work" className="mx-auto max-w-7xl overflow-x-hidden px-6 py-16 md:px-10">
         <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-red-800/90">
               selected work
             </p>
-            <h3 className="mt-3 text-3xl font-black uppercase leading-none text-white md:text-6xl">
+            <h3 className="mt-3 break-words text-3xl font-black uppercase leading-none text-white md:text-6xl">
               concepts with teeth.
             </h3>
           </div>
@@ -346,7 +339,7 @@ export default function Home() {
                 <p className={["text-[10px] uppercase tracking-[0.28em]", project.subtitleClasses].join(" ")}>
                   {project.subtitle}
                 </p>
-                <h4 className="mt-3 text-2xl font-black uppercase leading-none text-white md:text-3xl">
+                <h4 className="mt-3 break-words text-2xl font-black uppercase leading-none text-white md:text-3xl">
                   {project.title}
                 </h4>
                 <p className="mt-4 text-sm font-medium leading-7 text-white/85" style={monoStyle}>
@@ -373,7 +366,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-4 md:px-10 md:py-10">
+      <section className="mx-auto max-w-7xl overflow-x-hidden px-6 py-4 md:px-10 md:py-10">
         <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-[2rem] border border-white/10 bg-zinc-950 p-8 text-white shadow-2xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-red-800/80">
@@ -393,7 +386,7 @@ export default function Home() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-red-800/90">
               approach
             </p>
-            <h3 className="mt-3 text-3xl font-black uppercase leading-none text-white md:text-5xl">
+            <h3 className="mt-3 break-words text-3xl font-black uppercase leading-none text-white md:text-5xl">
               not just pretty.
               <br />
               precise.
@@ -408,7 +401,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl px-6 pb-20 pt-16 md:px-10">
+      <section id="contact" className="mx-auto max-w-7xl overflow-x-hidden px-6 pb-20 pt-16 md:px-10">
         <div className="relative overflow-hidden rounded-[2.4rem] border border-red-900/50 bg-[#7a0f0f] p-8 text-white shadow-2xl md:p-12">
           <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-black/25 blur-3xl" />
           <div className="absolute bottom-0 left-0 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
@@ -425,23 +418,15 @@ export default function Home() {
             </p>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
-              <a
-                href="mailto:ashfariasfl@gmail.com"
-                className="rounded-2xl border border-white bg-white px-5 py-4 text-sm font-black uppercase tracking-[0.18em] text-black transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg]"
+              <a href="mailto:ashfariasfl@gmail.com" className="rounded-2xl border border-white bg-white px-5 py-4 text-sm font-black uppercase tracking-[0.12em] text-black transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg] sm:tracking-[0.18em] break-all"
               >
                 ashfariasfl@gmail.com
               </a>
-              <a
-                href="tel:2148757678"
-                className="rounded-2xl border border-white/20 bg-black/15 px-5 py-4 text-sm font-black uppercase tracking-[0.18em] text-white transition duration-300 hover:-translate-y-1 hover:rotate-[1deg]"
+              <a href="tel:2148757678" className="rounded-2xl border border-white/20 bg-black/15 px-5 py-4 text-sm font-black uppercase tracking-[0.12em] text-white transition duration-300 hover:-translate-y-1 hover:rotate-[1deg] sm:tracking-[0.18em]"
               >
                 (214) 875-7678
               </a>
-              <a
-                href="https://instagram.com/ashsyrin"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-2xl border border-white/20 bg-black/15 px-5 py-4 text-sm font-black uppercase tracking-[0.18em] text-white transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg]"
+              <a href="https://instagram.com/ashsyrin" target="_blank" rel="noreferrer" className="rounded-2xl border border-white/20 bg-black/15 px-5 py-4 text-sm font-black uppercase tracking-[0.12em] text-white transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg] sm:tracking-[0.18em]"
               >
                 @ashsyrin
               </a>
